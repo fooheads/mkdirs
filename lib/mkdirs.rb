@@ -1,9 +1,11 @@
 require 'mkdirs/version'
 require 'yaml'
 require 'fileutils'
+require 'colorize'
+
+include FileUtils
 
 module Mkdirs
-  include FileUtils
 
   Spec = Struct.new(:path, :cmd)
 
@@ -15,9 +17,11 @@ module Mkdirs
     specs = load(yml)
     specs.each do |spec|
       dir = File.join(root_dir, spec.path)
+      puts "mkdir -p #{dir}".colorize(:green)
       mkdir_p(dir)
       if spec.cmd
         Dir.chdir(dir) do
+          puts spec.cmd.colorize(:green)
           system(spec.cmd)
         end
       end

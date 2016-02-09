@@ -1,3 +1,13 @@
 #!/usr/bin/env ruby
 
-require "mkdirs"
+require 'mkdirs'
+
+unless ARGV.size == 2
+  puts "usage: mkdirs <config_file> <root_dir>"
+  exit -1
+end
+
+config_file = ARGV[0]
+root_dir    = ARGV[1]
+
+Mkdirs.apply_filename(config_file, root_dir)
