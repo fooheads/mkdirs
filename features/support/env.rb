@@ -16,7 +16,7 @@ After do
 end
 
 def mkdirs(yml)
-  Mkdirs.apply(yml, @root)
+  Mkdirs.apply(yml, @root, false)
   Dir.chdir(@root) do
     Dir.glob('**/*').join("\n")
   end

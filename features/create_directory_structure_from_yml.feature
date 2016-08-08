@@ -27,7 +27,7 @@ Feature: Create directory structure from yml
     When I choose to apply the config
       """
       code:
-        mkdirs: git clone ../../../../../../mkdirs .
+        mkdirs: git clone ../../../../../mkdirs
         coolproj:
       """
     Then the following directory structure should be created
