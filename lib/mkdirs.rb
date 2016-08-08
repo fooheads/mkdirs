@@ -16,13 +16,17 @@ module Mkdirs
   def self.apply(yml, root_dir)
     specs = load(yml)
     specs.each do |spec|
-      dir = File.join(root_dir, spec.path)
-      puts "mkdir -p #{dir}".colorize(:green)
-      mkdir_p(dir)
-      if spec.cmd
+      path = File.join(root_dir, spec.path)
+      dir = File.dirname(path)
+      unless File.exists?(dir)
+        puts "mkdir -p #{dir}".colorize(:green)
+        mkdir_p(dir)
+      end
+      if spec.cmd && !File.exists?(path)
         Dir.chdir(dir) do
           puts spec.cmd.colorize(:green)
           system(spec.cmd)
+          exit($?.exitstatus) if $?.exitstatus != 0
         end
       end
     end
