@@ -1,6 +1,7 @@
 require 'rubygems'
 require 'cucumber'
 require 'cucumber/rake/task'
+require 'bundler/gem_tasks'
 
 task :default => :features
 
