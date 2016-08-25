@@ -6,12 +6,11 @@ require 'mkdirs/version'
 Gem::Specification.new do |spec|
   spec.name          = "mkdirs"
   spec.version       = Mkdirs::VERSION
-  spec.authors       = ["Jon-Erling Dahl"]
-  spec.email         = ["joda@soloduo.se"]
+  spec.authors       = ["Jon-Erling Dahl", "Niclas Nilsson"]
+  spec.email         = ["jon-erling@fooheads.com", "niclas@fooheads.com"]
 
-  spec.summary       = %q{Create directory structure from config}
-  spec.description   = %q{Create directory structure from YAML file}
-  spec.homepage      = "https://bitbucket.org/fooheads"
+  spec.summary       = %q{Create directory structure from YML}
+  spec.homepage      = "https://github.com/fooheads/mkdirs"
   spec.license       = "MIT"
 
   # Prevent pushing this gem to RubyGems.org by setting 'allowed_push_host', or
